@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import CartContext from "../../../store/CartContext";
 import FormCoffeeItem from "./FormCoffeeItem";
 
 const CoffeeItem = (props) => {
+  const cartCtx = useContext(CartContext);
   const price = `$${props.price.toFixed(2)}`;
+
+  const addToCartHandler = (amount) => {
+    cartCtx.addItem({
+      id: props.id,
+      name: props.name,
+      amount: amount,
+      price: props.price,
+    });
+  };
 
   return (
     <li className="flex justify-between m-2 p-2 border-b-2">
@@ -12,7 +23,7 @@ const CoffeeItem = (props) => {
         <div className="mt-1 font-bold text-lg ">{price}</div>
       </div>
       <div>
-        <FormCoffeeItem />
+        <FormCoffeeItem onAddToCart={addToCartHandler} />
       </div>
     </li>
   );

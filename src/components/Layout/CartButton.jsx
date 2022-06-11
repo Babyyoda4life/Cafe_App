@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GiShoppingCart } from "react-icons/gi";
+import CartContext from "../../store/CartContext";
 
 const CartButton = (props) => {
+  const cartCtx = useContext(CartContext);
+
+  const { items } = cartCtx;
+
+  const numberOfCartItems = items.reduce((curNumber, item) => {
+    return curNumber + item.amount;
+  }, 0);
+
   return (
     <button
       onClick={props.onClick}
@@ -11,7 +20,7 @@ const CartButton = (props) => {
       <span>
         <GiShoppingCart size={20} />
       </span>
-      <span className="py-1 px-1 ml-2 font-bold">3</span>
+      <span className="py-1 px-1 ml-2 font-bold">{numberOfCartItems}</span>
     </button>
   );
 };

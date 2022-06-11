@@ -2,37 +2,44 @@ import React from "react";
 import Card from "../UI/Card";
 import CoffeeItem from "./CoffeeItem/CoffeeItem";
 
-const DUMMY_MEALS = [
+const DUMMY_COFFEE = [
   {
     id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
+    name: "Espresso",
+    description: "Single or double shoot of our finest arabica coffee beans",
+    price: 2.55,
   },
   {
     id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
-    price: 16.5,
+    name: "Caffe Macchiato",
+    description: "When your espresso needs a droop of milk",
+    price: 2.7,
   },
   {
     id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price: 12.99,
+    name: "Caffe Latte",
+    description: "Hot or Cold version we got you covered",
+    price: 3.6,
   },
   {
     id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 18.99,
+    name: "Cappuccion",
+    description: "Perfect combination of espresso and steamed milk",
+    price: 3.4,
+  },
+  {
+    id: "m5",
+    name: "Hot Chocolate",
+    description: "Best cocoa beans to your cup comes this delicious drink ",
+    price: 3.2,
   },
 ];
 
 const AvailableCoffee = () => {
-  const coffeelist = DUMMY_MEALS.map((coffee) => (
+  const coffeelist = DUMMY_COFFEE.map((coffee) => (
     <CoffeeItem
       key={coffee.id}
+      id={coffee.id}
       name={coffee.name}
       description={coffee.description}
       price={coffee.price}
@@ -40,10 +47,9 @@ const AvailableCoffee = () => {
   ));
 
   return (
-    <section className="max-w-[60rem] w-[90%] m-auto ">
+    <section className="max-w-7xl w-[90%] m-auto  ">
       <Card>
-        <ul className=" list-none ">{coffeelist}</ul>
-        <ul className=" list-none ">{coffeelist}</ul>
+        <ul className=" list-none  ">{coffeelist}</ul>
       </Card>
     </section>
   );
